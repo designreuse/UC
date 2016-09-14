@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Vote</title>
+    <!-- Bootstrap -->
+    <link href="../../3rdLibrary/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+  	<link rel="stylesheet" href="../../3rdLibrary/jquery-ui/jquery-ui.css">
+	  <link rel="stylesheet" href=../../3rdLibrary/ztree/zTreeStyle/zTreeStyle.css>
+    <link href="../../styles/common.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="../../3rdLibrary/ie-compatible/html5shiv.min.js"></script>
+      <script src="../../3rdLibrary/ie-compatible/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../../3rdLibrary/jquery/jquery.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="../../3rdLibrary/bootstrap/js/bootstrap.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="../../3rdLibrary/bootstrap/js/bootstrap-paginator.js" charset="UTF-8"></script>
+  	<script type="text/javascript" src="../../3rdLibrary/ckeditor/ckeditor.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="../../3rdLibrary/jquery-ui/jquery-ui.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="../../3rdLibrary/jquery/ajaxfileupload.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="../../3rdLibrary/chartjs/Chart.js"></script>
+	<script type="text/javascript" src="../../3rdLibrary/ztree/jquery.ztree.all-3.5.min.js"></script>
+
+  </head>
+  <body>
+	<div class="m-div-main container">
+		<ul id="myTab" class="nav nav-tabs">
+		   <li><a href="#vote1" data-toggle="tab" class="m-tabTitle">发起投票</a></li>
+		   <li><a href="#vote2" data-toggle="tab" class="m-tabTitle">未完成的投票</a></li>
+		   <li><a href="#vote3" data-toggle="tab" class="m-tabTitle">已完成的投票</a></li>
+		   <li><a href="#vote4" data-toggle="tab" class="m-tabTitle">我发起的投票</a></li>
+		</ul>
+		<div id="myTabContent" class="tab-content " >
+		   	<div class="tab-pane fade " id="vote1" >
+		   		<div class="m-limitHeight">
+					<br>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="col-xs-2">
+								<a type="button" class="btn btn-default m-staffBtn">选择参与者</a>
+							</div>
+							<div class="col-xs-10 m-staffVal">
+								<input type="text" class="form-control m-staff"  readonly placeholder="选择参与者">
+							</div>
+						</div>
+						<div class="form-group">
+							<label  class="col-xs-2 control-label">投票主题</label>
+							<div class="col-xs-10">
+								<input type="text" name="voteTheme" class="form-control m-votetheme"  placeholder="请输入投票主题" maxlength="256"><span class="themeLen">0</span>/256
+							</div>
+						</div>
+						<div class="form-group">
+							<label  class="col-xs-2 control-label">投票设置</label>
+							<div class="col-xs-10">
+								<a href="#" class="m-showadddetail" >添加详细说明</a>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 control-label"></label>
+							<div class="col-xs-10">
+								<div id="m-detailOptions">
+									<div class="m-addDetail"  >
+										<textarea id="voteDesc" name="voteDesc" rows="10" cols="50"></textarea>
+									</div>
+									<div class="m-detailoptionrow">
+										<label class="m-label-1">选项设置</label>
+										<label class="m-label-2">
+											<input type="radio" id="isSingleSelect" name="optionsRadiosinline" checked />&nbsp;单选
+										</label>
+										<label class="m-label-2" >
+											<input type="radio" id="isMultiSelect" name="optionsRadiosinline" />&nbsp;多选
+										</label>
+										<label class="m-label-2 m-itemLimit" >
+											最少
+											<select name="minItem">
+												<option value ="2">2</option>
+											</select>
+											项
+										</label>
+										<label class="m-label-2 m-itemLimit">
+											最多
+											<select name="maxItem">
+												<option value ="2">2</option>
+											</select>
+											项
+										</label>
+									</div>
+
+									<div class="m-detailoptionrow" >
+										<label class="m-label-1">结束时间</label>
+										<div class="m-finishDateDiv" >
+											<div class="input-group">
+												<input class="form-control" id="finishDate" name="finishDate" readonly="readonly" type="text" value=""/>
+												<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+											</div>
+										</div>
+									</div>
+									<div class="m-detailoptionrow" >
+										<label class="m-label-1">其他设置</label>
+										<label class="m-label-2">
+											<!--<input type="checkbox" name="isAnonymous"  >&nbsp;匿名 -->
+											<input type="checkbox" id="isAnonymous" name="isAnonymous" />&nbsp;匿名
+										</label>
+										<label class="m-label-2">
+											<!--<input type="checkbox" name="isPublic"  >&nbsp;显示投票详情 -->
+											<input type="checkbox" id="isPublic" name="isPublic" />&nbsp;显示投票详情
+										</label>
+									</div>
+
+									<div class="m-detailoptionrow" >
+										<!-- 选项输入表格 -->
+										<table class="table table-condensed" id="m-optionTable">
+											<thead>
+											<tr>
+												<th class="m-voteitemtitle">选项文字</th> <!-- &nbsp;<img tp="sort" src="../../images/sort.png"/> -->
+												<th>图片</th>
+												<th>说明</th>
+												<th>操作</th>
+											</tr>
+											</thead>
+											<tbody>
+											<tr>
+												<td><input type="text" class="form-control input-sm" placeholder="请输入选项内容" size="10" > <div class="m-data"></div></td>
+												<td>
+													<input type="checkbox" id="m-option1"  />&nbsp;
+													<img tp="uploadImg" src="../../images/pic.png"/>
+												</td>
+												<td><img  tp="editDetail"  src="../../images/desc.png"/></td>
+												<td>
+													<img tp="add" src="../../images/add.png"/>
+													<img tp="del" src="../../images/sub.png"/>
+													<img tp="down" src="../../images/down.png"/>
+													<img tp="up" src="../../images/up.png"/>
+												</td>
+											</tr>
+											<tr>
+												<td><input type="text" class="form-control input-sm" placeholder="请输入选项内容" size="10" > <div></div></td>
+												<td>
+													<input type="checkbox" id="m-option2" />&nbsp;
+													<img tp="uploadImg" src="../../images/pic.png"/>
+												</td>
+												<td><img  tp="editDetail"  src="../../images/desc.png"/></td>
+												<td>
+													<img tp="add" src="../../images/add.png"/>
+													<img tp="del" src="../../images/sub.png"/>
+													<img tp="down" src="../../images/down.png"/>
+													<img tp="up" src="../../images/up.png"/>
+												</td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+
+				<div class="form-group">
+					<!--<hr> -->
+					<div class="col-xs-12">
+						<button class="btn btn-default pull-right m-submit">提交</button>
+					</div>
+				</div>
+		   	</div>
+		   	<div class="tab-pane fade" id="vote2">
+				<div class="m-vote2Table m-limitHeight">
+				</div>
+				<div class="m-vote2Paging pull-right">
+					<ul id="vote2m-pagging"  ></ul>
+				</div>
+		  	</div>
+		   	<div class="tab-pane fade" id="vote3">
+
+				<div class="m-vote2Table m-limitHeight">
+				</div>
+				<div class="m-vote2Paging pull-right">
+					<ul id="vote3m-pagging"  ></ul>
+				</div>
+
+		  	</div>
+		   	<div class="tab-pane fade" id="vote4">
+				<div class="m-vote2Table m-limitHeight">
+				</div>
+				<div class="m-vote2Paging pull-right">
+					<ul id="vote4m-pagging" ></ul>
+				</div>
+		   	</div>
+		</div>
+	</div>
+	<!-- vote1 点击说明图标弹出说明编辑弹窗 -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header m-modalHeader-yeaLink">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h5 class="modal-title" >修改说明</h5>
+			  </div>
+			  <div class="modal-body">
+				<textarea class="form-control" rows="4" maxlength="256" placeholder="最多允许输入256个字符!"></textarea>
+			  </div>
+			  <div class="modal-footer m-modalFooter-yeaLink">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- vote1 点击说明图标弹出图片上传图标 -->
+	<div class="modal fade" id="m-imgUpModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header m-modalHeader-yeaLink">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h5 class="modal-title" >上传图片</h5>
+				</div>
+				<div class="modal-body">
+					<div class ="row">
+						<div class="col-xs-12 m-fileRow">
+							<div class="m-preView">
+								<img class="m-animg" id="previewImage" />
+								<br>
+								<br>
+							</div>
+							<input class="selectFile" type="file" id="picFile1" name="picFile"/>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer m-modalFooter-yeaLink">
+					<div class="m-preView pull-left"> 图片大小：<b></b> </div>
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-yealink m-btn-upload" >上传</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 选择参与人 -->
+	<div class="modal fade" id="m-staffModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h5 class="modal-title" >选择参与人</h5>
+				</div>
+				<div class="modal-body">
+					<div class="m-staffTree"></div>
+				</div>
+				<div class="modal-footer m-modalFooter-yeaLink">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-yealink m-btn-selectStaff" id="confirmSelectStaff" >确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 图片的浮层显示 -->
+	<p class="m-hide" id="bigimage"><img src="" alt="" /></p>
+	<script src="../../html/vote/vote.js" charset="UTF-8"></script>
+  </body>
+</html>
+
+

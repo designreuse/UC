@@ -1,0 +1,102 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<tr class="table-striped-tr-odd">
+	<td width="20%" class="text-align-left"><label title="<spring:message code="session.details.session_id"/> "><spring:message code="session.details.session_id"/></label></td>
+    <td class="text-align-left"><label title="{{sessionId}}">{{sessionId}}</label></td>
+ </tr>
+ <tr class="table-striped-tr-even">
+ 	<td width="20%" class="text-align-left"><label title="<spring:message code="session.details.username"/>"><spring:message code="session.details.username"/></label></td>
+     <td width="80%" class="text-align-left"><label title="{{jid.node}}">{{jid.node}} - {{jid.resource}}</label></td>
+  </tr>
+  <tr class="table-striped-tr-odd">
+  	<td width="20%" class="text-align-left"><label title="<spring:message code="session.details.node"/>"><spring:message code="session.details.node"/></label></td>
+      <td width="80%" class="text-align-left">
+          <label>
+          {{if node==="local"}}
+          <spring:message code="session.details.local"/>
+          {{else}}
+           <spring:message code="session.details.remote"/>
+          {{/if}}
+          </label>
+      </td>
+   </tr>
+   <tr class="table-striped-tr-even">
+   	<td width="20%" class="text-align-left"><label title="<spring:message code="session.details.status"/>"><spring:message code="session.details.status"/></label></td>
+    <td width="80%" class="text-align-left">
+    <label>
+       {{if statusId===-1 }}
+        <label title="<spring:message code="session.details.close" />"><spring:message code="session.details.close" /></label>
+       {{else if statusId===1}}
+       <label title=" <spring:message code="session.details.connect" />"> <spring:message code="session.details.connect" /></label>
+       {{else if statusId===3}}
+        <label title=" <spring:message code="session.details.authenticated" />"><spring:message code="session.details.authenticated" /></label>
+       {{else }}
+        <label title=" <spring:message code="session.details.unknown" />">{{ statusMsg}}</label>
+        {{/if}}
+    </label>
+    </td>
+   </tr>
+    <tr class="table-striped-tr-odd">
+    	<td width="20%" class="text-align-left"><label title="<spring:message code="session.details.presence"/>"><spring:message code="session.details.presence"/></label></td>
+        <td width="80%" class="text-align-left">
+           {{if presenceMsg==="away"}}
+            <img src="${pageContext.request.contextPath}/images/im_away.gif" width="16" height="16" border="0"
+            title="<spring:message code='session.details.away' />"
+            alt="<spring:message code='session.details.away' />">
+              <label title="<spring:message code="session.details.away" />">
+                 <spring:message code="session.details.away" />
+              </label>
+          {{else if presenceMsg==="chat_available"}}
+                  <img src="${pageContext.request.contextPath}/images/im_free_chat.gif" width="16" height="16" border="0"
+                  title="<spring:message code='session.details.chat_available' />"
+                   alt="<spring:message code='session.details.chat_available' />">
+                  <label title="<spring:message code="session.details.chat_available" />">
+                     <spring:message code="session.details.chat_available" />
+                  </label>
+            {{else if presenceMsg === "not_disturb"}}
+              <img src="${pageContext.request.contextPath}/images/im_dnd.gif" width="16" height="16" border="0"
+              title="<spring:message code='session.details.not_disturb' />"
+               alt="<spring:message code='session.details.not_disturb' />">
+              <label title="<spring:message code="session.details.not_disturb" />">
+                 <spring:message code="session.details.not_disturb" />
+              </label>
+             {{else if presenceMsg === "extended"}}
+              <img src="${pageContext.request.contextPath}/images/im_away.gif" width="16" height="16" border="0"
+              title="<spring:message code='session.details.extended' />"
+               alt="<spring:message code='session.details.extended' />">
+
+              <label title="<spring:message code="session.details.extended" />">
+                 <spring:message code="session.details.extended" />
+              </label>
+            {{else}}
+              <img src="${pageContext.request.contextPath}/images/im_available.gif" width="16" height="16" border="0"
+              title="<spring:message code='session.details.online' />"
+               alt="<spring:message code='session.details.online' />">
+              <label title="<spring:message code="session.details.online" />">
+                 <spring:message code="session.details.online" />
+              </label>
+        {{/if}}
+        </td>
+     </tr>
+     <tr class="table-striped-tr-even">
+     	<td width="20%" class="text-align-left"><label title="<spring:message code="session.details.priority"/>"><spring:message code="session.details.priority"/></label></td>
+         <td width="80%" class="text-align-left"><label title="{{ priority}}">{{ priority}}</label></td>
+      </tr>
+  <tr class="table-striped-tr-odd">
+    <td width="20%" class="text-align-left"><label title="<spring:message code="session.details.session_created"/>"><spring:message code="session.details.session_created"/></label></td>
+       <td width="80%" class="text-align-left"><label title="{{ created}}">{{ created}}</label></td>
+    </tr>
+    <tr class="table-striped-tr-even">
+        <td width="20%" class="text-align-left"><label title="<spring:message code="session.details.last_active"/>"><spring:message code="session.details.last_active"/></label></td>
+        <td width="80%" class="text-align-left"><label title="{{ lastActive}}">{{ lastActive}}</label></td>
+    </tr>
+    <tr class="table-striped-tr-odd">
+        <td width="20%" class="text-align-left"><label title="<spring:message code="session.details.statistics"/>"><spring:message code="session.details.statistics"/></label></td>
+        <td width="80%" class="text-align-left"><label title="{{ lastActiveDate}}">
+        <spring:message code="session.details.received"/>{{ sendCount}} / {{ receiveCount}}
+        </label></td>
+    </tr>
+    <tr class="table-striped-tr-even">
+        <td width="20%" class="text-align-left"><label title="<spring:message code="session.details.hostname"/>"><spring:message code="session.details.hostname"/></label></td>
+        <td width="80%" class="text-align-left"><label title="{{ clientIp}}">{{ clientIp}}</label></td>
+    </tr>
+

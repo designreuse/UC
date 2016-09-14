@@ -1,0 +1,25 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<div class="org-content-right-up">
+	<div class="org-name">
+		{{org.name}}
+	</div>
+	{{ if org._id >0}}
+		<div class="org-edit">
+			<div style="float:left;margin-left:12px">
+				<a  class="no-underline" id="editOrg_{{ org._id}}" href="javascript:void(0);" parentId="{{org.parentId}}">
+					<img src="${pageContext.request.contextPath}/images/operation/edit.png" title="编辑">
+				</a>
+			</div>
+			<div class="org-batch-mail-staff">
+				<a  class="no-underline" id="mailAccountOrg_{{ org._id}}" href="javascript:void(0);">
+					<img src="${pageContext.request.contextPath}/images/operation/mail.png" title="向部门所有成员发送账号">
+				</a>
+			</div>
+			<div class="org-delete">
+				<a  class="no-underline" id="deleteOrg_{{ org._id}}" href="javascript:void(0);">
+					<img src="${pageContext.request.contextPath}/images/operation/delete.png" title="删除">
+				</a>
+			</div>
+		</div>
+	{{/if}}
+</div>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>staff</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/imweb/3rdLibrary/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href=/imweb/3rdLibrary/ztree/zTreeStyle/zTreeStyle.css>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="/imweb/3rdLibrary/ie-compatible/html5shiv.js"></script>
+    <scrnipt src="/imweb/3rdLibrary/ie-compatible/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="/imweb/3rdLibrary/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/imweb/3rdLibrary/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/imweb/3rdLibrary/ztree/jquery.ztree.all-3.5.min.js"></script>
+
+    <style type="text/css">
+        .col-left{
+            padding-right:5px;
+        }
+        .col-right{
+            padding-left:5px;
+        }
+        .tree-container{
+            height:350px;
+            border:1px solid #ddd;
+            overflow: auto;
+        }
+        .list-container{
+            height:350px;
+            border:1px solid #ddd;
+            overflow: auto;
+        }
+        .head-margin{
+            margin-top:10px
+        }
+        .row-margin{
+            margin-top:2px
+        }
+        .search-div{
+            width:93%;
+            position:absolute;
+            z-index:1;
+            display:none;
+        }
+        .list-container li.selectedItem {
+            background-color:#FFE6B0;
+            border:1px #FFB951 solid;
+            opacity:0.8;
+        }
+    </style>
+</head>
+<body>
+<div class="container" style="width:600px">
+    <ul id="staffTab" class="nav nav-tabs">
+        <li class="active">
+            <a href="#org" data-toggle="tab">组织架构</a>
+        </li>
+        <li>
+            <a href="#room" data-toggle="tab">群组</a>
+        </li>
+    </ul>
+    <div id="staffTabContent" class="tab-content head-margin">
+        <div class="tab-pane fade in active" id="org">
+            <div class="row">
+                <div class="col-sm-6 col-left">
+                    <input class="form-control" type="text" placeholder="搜索过滤条件" id="org_search">
+                    <div class="search-div" id="org_search_div">
+                        <select class="form-control" multiple id="org_search_list" size="6">
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-right">
+                    <div class="row" style="line-height:34px;">
+                        <div class="col-sm-6" >已选择：</div>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-default" id="org_del">删除</button>
+                            <button type="button" class="btn btn-default" id="org_clear">清空</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-margin">
+                <div class="col-sm-6 col-left">
+                    <div class="tree-container">
+                        <ul id="org_tree" class="ztree"></ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-right">
+                    <div class="list-container">
+                        <ul class="list-unstyled" id="org_staff_List">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="room">
+            <div class="row">
+                <div class="col-sm-6 col-left">
+                    <input class="form-control" type="text" placeholder="搜索过滤条件" id="room_search">
+                    <div class="search-div" id="room_search_div">
+                        <select class="form-control" multiple id="room_search_list" size="6">
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-right">
+                    <div class="row" style="line-height:34px;">
+                        <div class="col-sm-6" >已选择：</div>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-default" id="room_del">删除</button>
+                            <button type="button" class="btn btn-default" id="room_clear">清空</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-margin">
+                <div class="col-sm-6 col-left">
+                    <div class="tree-container">
+                        <ul id="room_tree" class="ztree"></ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-right">
+                    <div class="list-container">
+                        <ul class="list-unstyled" id="room_staff_List">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row row-margin" >
+        <div class="col-sm-12 text-center">
+            <button type="button" class="btn btn-default" id="confirmSelectStaff">确认</button>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/imweb/js/staff/staff.js"></script>
+</body>
+</html>

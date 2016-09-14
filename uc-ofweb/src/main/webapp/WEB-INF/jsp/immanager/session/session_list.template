@@ -1,0 +1,118 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+{{if data.length==0}}
+<tr class="text-align-center">
+    没有查到数据！
+</tr>
+{{/if}}
+{{each data as prop index}}
+        <tr class="
+			{{if index % 2 ===0}}table-striped-tr-odd
+			{{else}}table-striped-tr-even
+			{{/if}}">
+			<td width="3%" class="text-align-center"><label title="{{index+1}}">{{((attrs.pageNo-1)*attrs.pageSize)+index+1}}</label></td>
+			 <td width="3%" class="text-align-right">
+                <input type="checkbox" name="rowCheckbox" value="{{prop.sessionId}}"/>
+             </td>
+            <td width="10%" class="text-align-left"><label title="{{prop.jid.node}}">{{ prop.jid.node}}</label></td>
+            <td width="10%" class="text-align-left"><label title="{{prop.name}}">{{ prop.name}}</label></td>
+            <td width="20%" class="text-align-left">
+               <label title="{{ prop.orgName}}">
+                 {{ prop.orgName}}
+                </label>
+            </td>
+
+           {{if prop.presenceMsg==="pc-away"}}
+            <td width="2%" class="text-align-right">
+                <img src="${pageContext.request.contextPath}/images/uc/pc-away.png" width="16" height="16" border="0" >
+
+            </td>
+              <td width="13%" class="text-align-left">
+                  <label title="<spring:message code="session.details.away" />">
+                    {{prop.jid.resource}} <spring:message code="session.details.away" />
+                  </label>
+              </td>
+            {{else if prop.presenceMsg==="mobile-away"}}
+            <td width="2%" class="text-align-right">
+               <img src="${pageContext.request.contextPath}/images/uc/mobile-away.png" width="16" height="16" border="0" >
+
+            </td>
+              <td width="13%" class="text-align-left">
+                  <label title="<spring:message code="session.details.away" />">
+                    {{prop.jid.resource}} <spring:message code="session.details.away" />
+                  </label>
+              </td>
+              {{else if prop.presenceMsg==="pc-chat_available" ||prop.presenceMsg==="mobile-chat_available"}}
+                  <td width="2%" class="text-align-right">
+                      <img src="${pageContext.request.contextPath}/images/im_free_chat.gif" width="16" height="16" border="0"
+                      title="<spring:message code='session.details.chat_available' />"
+                       alt="<spring:message code='session.details.chat_available' />">
+                  </td>
+                    <td width="13%" class="text-align-left">
+                      <label title="<spring:message code="session.details.chat_available" />">
+                         {{prop.jid.resource}}<spring:message code="session.details.chat_available" />
+                      </label>
+                    </td>
+                {{else if prop.presenceMsg === "pc-not_disturb" }}
+                <td width="2%" class="text-align-right">
+                    <img src="${pageContext.request.contextPath}/images/uc/pc-busy.png" width="16" height="16" border="0" >
+
+               </td>
+                <td width="13%" class="text-align-left">
+                  <label title="<spring:message code="session.details.not_disturb" />">
+                     {{prop.jid.resource}} <spring:message code="session.details.not_disturb" />
+                  </label>
+                </td>
+                  {{else if  prop.presenceMsg === "mobile-not_disturb" }}
+                    <td width="2%" class="text-align-right">
+                        <img src="${pageContext.request.contextPath}/images/uc/mobile-busy.png" width="16" height="16" border="0" >
+                   </td>
+                    <td width="13%" class="text-align-left">
+                      <label title="<spring:message code="session.details.not_disturb" />">
+                         {{prop.jid.resource}} <spring:message code="session.details.not_disturb" />
+                      </label>
+                    </td>
+                 {{else if prop.presenceMsg === "pc-extended" ||  prop.presenceMsg === "mobile-extended"}}
+                <td width="2%" class="text-align-right">
+                    <img src="${pageContext.request.contextPath}/images/uc/mobile-away.png" width="16" height="16" border="0" >
+
+               </td>
+                <td width="13%" class="text-align-left">
+                  <label title="<spring:message code="session.details.extended" />">
+                    {{prop.jid.resource}} <spring:message code="session.details.extended" />
+                  </label>
+                </td>
+                {{else if prop.presenceMsg === "pc-online"}}
+                 <td width="2%" class="text-align-right">
+                   <img src="${pageContext.request.contextPath}/images/uc/pc-online.png" width="16" height="16" border="0" >
+
+                </td>
+                <td width="13%" class="text-align-left">
+                  <label title="<spring:message code="session.details.online" />">
+                    {{prop.jid.resource}}<spring:message code="session.details.online" />
+                  </label>
+                </td>
+                {{else}}
+                 <td width="2%" class="text-align-right">
+                   <img src="${pageContext.request.contextPath}/images/uc/mobile-online.png" width="16" height="16" border="0" >
+
+                </td>
+                <td width="13%" class="text-align-left">
+                  <label title="<spring:message code="session.details.online" />">
+                    {{prop.jid.resource}}<spring:message code="session.details.online" />
+                  </label>
+                </td>
+            {{/if}}
+            <td width="15%" class="text-align-left"><label title="{{prop.clientVersion}}">{{ prop.clientVersion}}</label></td>
+            <td width="15%" class="text-align-left"><label title="{{prop.created}}">{{prop.created}}</label></td>
+            <td>
+                <div class="td-div-operation">
+
+                     <label id="close_{{prop.sessionId}}" class="table-icon-label"
+                           title="delete" >
+                        <i class="icon-remove icon-large"></i>
+                    </label>
+                </div>
+            </td>
+            <td width="1.8%"></td>
+        </tr>
+  {{/each}}

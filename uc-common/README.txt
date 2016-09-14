@@ -1,0 +1,1 @@
+该项目存放web、api等项目都会用到的公共的entity、service、vo、util等

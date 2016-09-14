@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="decorators">
+<!-- 放弃装饰部分 -->
+<excludes>
+	<pattern>*</pattern>
+	<pattern>/html/*</pattern>
+    <pattern>/vote/*</pattern>
+</excludes>
+ <!--装饰名称，可以设置多个-->
+ <decorator name="default" page="/decorator/decorator_main.jsp">
+      <pattern>/*</pattern>
+ </decorator>
+</decorators>

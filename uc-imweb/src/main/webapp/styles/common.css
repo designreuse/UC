@@ -1,0 +1,345 @@
+
+.m-div-main{
+	width: 701px!important;
+}
+
+.m-hide{
+	display: none;
+}
+
+.m-showadddetail{
+	padding-left: 8px;
+	display: inline-block; 
+	padding-top: 7px;
+}
+
+.m-detailoptionrow{
+	width:100%;
+	margin-top:10px;
+}
+.m-voteitemtitle{
+	padding-left:8px;
+}
+
+.m-label-1{
+	padding-left: 8px;
+}
+.m-label-2{
+	padding-left: 25px;
+	font-weight: unset;
+}
+
+.m-finishDateDiv{
+	margin-top: -30px;
+	padding-left: 93px;
+	width: 330px;
+
+}
+
+.m-itemLimit{
+	display: none;
+}
+
+.m-limitHeight{
+	margin:auto;
+	overflow-x:auto;
+	max-height:400px;
+	overflow-x:hidden;
+}
+
+.m-tabTitle{
+	width: 116px;
+	text-align: center;
+}
+
+.m-votetheme{
+	width: 85%;
+	margin-right: 20px;
+	display: inline
+}
+
+/*分页对象的li>a背景颜色及边框颜色,字颜色*/
+.pagination>li>a ,.pagination>li>a:hover{
+	color: #12b5b0;
+}
+.pagination>li.active>a{
+	background-color: #12b5b0;
+	border-color: #12b5b0;
+}
+.pagination>li.active>a:hover{
+	background-color: #0F9999;
+	border-color: #0F9999;
+}
+
+/* 14px字体大小*/
+.m-fontsize14{
+	font-size:14px;
+}
+
+/*柱状图 饼图大小限制*/
+.m-canvassize{
+	width: 95%;max-height: 400px;
+}
+
+/*头像图片的大小限制*/
+.m-staffavatarimg{
+	width:60px;
+	height:60px;
+}
+
+/*投票详情头像图片的大小限制*/
+.m-avatarimg{
+	width:20px;
+	height:20px;
+}
+
+/*投票选项图片大小*/
+.m-itemimg{
+	width:20px;
+	height:20px;
+}
+
+/*上传图片预览图大小限制*/
+.m-animg{
+	width: 100%;
+	height: 100%;
+}
+
+/* tab页的头部样式，覆盖原来bootstrap样式 */
+.nav-tabs>li>a, .nav-tabs>li>a:focus, .nav-tabs>li>a:hover{
+	color: #888888;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+	color: #000000!important;
+	font-size: 14px;
+	border-bottom-color:#12b5b0!important;
+}
+
+/*tab页内容样式，覆盖原来bootstrap样式*/
+blockquote{
+	margin-top: 10px;
+	margin-bottom: 5px!important;
+	border-left:3px solid #12b5b0!important;
+	padding-bottom: 1px;
+	padding-right: 0px;
+}
+.panel{
+	margin-bottom: 0px;
+}
+.panel-body{
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.panel-head{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+/* 横线 input，select button a.btn textarea绿色边框样式 */
+hr{
+	border-color: #12B5B0 ;
+}
+input:hover,
+input:focus,
+select:hover,
+select:focus,
+select:active,
+button:hover,
+button:focus,
+button:active,
+a.btn:hover,
+a.btn:focus,
+a.btn:active,
+textarea:focus,
+textarea:active {
+	border-color: #12B5B0!important;
+	outline-color: #12B5B0!important;
+}
+
+/*滚动条样式*/
+/*谷歌，火狐看下面*/
+::-webkit-scrollbar-track-piece{
+	background-color:#fff;
+	-webkit-border-radius:0;
+}
+::-webkit-scrollbar{
+	width:10px;
+	height:10px;
+}
+::-webkit-scrollbar-thumb{
+	height:50px;
+	background-color:#12B5B0;
+	-webkit-border-radius:4px;
+	outline:2px solid #fff;
+	outline-offset:-2px;
+	border: 2px solid #fff;
+}
+::-webkit-scrollbar-thumb:hover{
+	height:50px;
+	background-color:#12B5B0;
+	-webkit-border-radius:4px;
+}
+/*IE下面只能改滚动条的颜色，要做到其他样式，要动刀子，上JS*/
+html,body {
+	scrollbar-face-color:#12B5B0; /*滚动条3D表面（ThreedFace）的颜色*/
+	scrollbar-highlight-color:#fff; /*滚动条3D界面的亮边（ThreedHighlight）颜色*/
+	scrollbar-shadow-color:#eeeeee; /*滚动条3D界面的暗边（ThreedShadow）颜色*/
+	scrollbar-3dlight-color:#eeeeee; /*滚动条亮边框颜色*/
+	scrollbar-arrow-color:#12B5B0; /*滚动条方向箭头的颜色 */
+	scrollbar-track-color:#fff; /*滚动条的拖动区域(TrackBar)颜色*/
+	scrollbar-darkshadow-color:#fff; /*滚动条暗边框（ThreedDarkShadow）颜色*/
+}
+
+/*全局圆角*/
+*{
+	-moz-border-radius: 0px!important;
+	-webkit-border-radius: 0px!important;
+	border-radius: 0px!important;
+}
+
+/* 绿色按钮样式 */
+.btn-yealink {
+	color: #fff;
+	background-color: #12B5B0;
+	border-color: #12B5B0;
+}
+.btn-yealink:hover,
+.btn-yealink:active,
+.btn-yealink:focus{
+	color: #fff;
+	background-color: #0F9999;
+	border-color: #0F9999;
+}
+
+/* 绿色Modal样式 */
+.m-modalHeader-yeaLink{
+	padding-top: 8px;
+	padding-bottom: 8px;
+	background-color: #12B5B0;
+	color: #fff;
+	border-bottom-width: 0px;
+}
+.m-modalFooter-yeaLink{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+/*staff页面样式*/
+.col-left{
+	padding-right:5px;
+}
+.col-right{
+	padding-left:5px;
+}
+.tree-container{
+	height:350px;
+	border:1px solid #ddd;
+	overflow: auto;
+}
+.list-container{
+	height:350px;
+	border:1px solid #ddd;
+	overflow: auto;
+}
+.head-margin{
+	margin-top:10px
+}
+.row-margin{
+	margin-top:2px
+}
+.search-div{
+	width:93%;
+	position:absolute;
+	z-index:1;
+	display:none;
+}
+.list-container li.selectedItem {
+	background-color:#FFE6B0;
+	border:1px #FFB951 solid;
+	opacity:0.8;
+}
+
+/* 动态显示放大图片样式 */
+#bigimage {
+	position:absolute;
+	display:none;
+}
+#bigimage img {
+	max-width:200px;
+	max-height:200px;
+	padding:5px;
+	background:#fff;
+	border:1px solid #12B5B0;
+}
+
+/** 自定义样式checkbox radio**/
+/*checkbox*/
+.regular-checkbox {
+	display: none;
+}
+.regular-checkbox + label {
+	margin-bottom: -3px;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 7px;
+	border-radius: 3px!important;
+	display: inline-block;
+	position: relative;
+}
+.regular-checkbox + label:active, .regular-checkbox:checked + label:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+.regular-checkbox:checked + label {
+	background-color: #e9ecee;
+	border: 1px solid #12B5B0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #99a1a7;
+}
+.regular-checkbox:checked + label:after {
+	content: '\2714';
+	font-size: 14px;
+	position: absolute;
+	top: -2px;
+	left: 1px;
+	color: #12B5B0;
+}
+/* RADIO */
+.regular-radio {
+	display: none;
+}
+.regular-radio + label {
+	margin-bottom: -3px;
+	-webkit-appearance: none;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 7px;
+	border-radius: 50px!important;
+	display: inline-block;
+	position: relative;
+}
+.regular-radio:checked + label:after {
+	content: ' ';
+	width: 8px;
+	height: 8px;
+	border-radius: 50px;
+	position: absolute;
+	top: 3px;
+	background: #12B5B0;
+	box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3);
+	text-shadow: 0px;
+	left: 3px;
+	font-size: 32px;
+}
+.regular-radio:checked + label {
+	background-color: #e9ecee;
+	color: #12B5B0;
+	border: 1px solid #12B5B0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1), inset 0px 0px 10px rgba(0,0,0,0.1);
+}
+.regular-radio + label:active, .regular-radio:checked + label:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+

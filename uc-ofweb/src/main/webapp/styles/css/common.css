@@ -1,0 +1,170 @@
+.input-max-width {
+    max-width:60%
+}
+
+.input-uc-yealink {
+
+}
+.input-uc-yealink:hover,
+.input-uc-yealink:active,
+.input-uc-yealink:focus{
+    outline:none;
+    border-color: #30B585;
+    solid-color: #30B585;
+}
+
+/* 绿色按钮样式 */
+.btn-yealink {
+    color: #fff;
+    background-color: #30B585;
+    border-color: #30B585;
+}
+.btn-yealink:hover,
+.btn-yealink:active,
+.btn-yealink:focus{
+    color: #fff;
+    background-color: #0F9999;
+    border-color: #0F9999;
+}
+/* 绿色Modal样式 */
+.m-modalHeader-yeaLink{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #12B5B0;
+    color: #fff;
+    border-bottom-width: 0px;
+}
+.m-modalFooter-yeaLink{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.modal-uc-yealink {
+    width:500px;
+}
+
+.storage-padding-left {
+    padding-left: 60px;
+}
+
+.storage-btn-padding-left {
+    padding-left: 100%;
+}
+
+.madal-content-padding-left {
+    padding-left: 20%;
+}
+
+
+/** 自定义样式checkbox radio**/
+/*checkbox*/
+.regular-checkbox {
+    display: none;
+}
+.regular-checkbox + label {
+    margin-bottom: -3px;
+    background-color: #fafafa;
+    border: 1px solid rgba(104, 91, 32, 0.36);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    padding: 7px;
+    border-radius: 3px!important;
+    display: inline-block;
+    position: relative;
+}
+.regular-checkbox + label:active, .regular-checkbox:checked + label:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+.regular-checkbox:checked + label {
+    background-color: #e9ecee;
+    border: 1px solid #30B585;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+    color: #99a1a7;
+}
+.regular-checkbox:checked + label:after {
+    content: '\2714';
+    font-size: 14px;
+    position: absolute;
+    top: -2px;
+    left: 1px;
+    color: #30B585;
+}
+/* RADIO */
+.regular-radio {
+    display: none;
+}
+.regular-radio + label {
+    margin-bottom: -3px;
+    -webkit-appearance: none;
+    background-color: #fafafa;
+    border: 1px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    padding: 7px;
+    border-radius: 50px!important;
+    display: inline-block;
+    position: relative;
+}
+.regular-radio:checked + label:after {
+    content: ' ';
+    width: 8px;
+    height: 8px;
+    border-radius: 50px;
+    position: absolute;
+    top: 3px;
+    background: #12B5B0;
+    box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3);
+    text-shadow: 0px;
+    left: 3px;
+    font-size: 32px;
+}
+.regular-radio:checked + label {
+    background-color: #e9ecee;
+    color: #12B5B0;
+    border: 1px solid #12B5B0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1), inset 0px 0px 10px rgba(0,0,0,0.1);
+}
+.regular-radio + label:active, .regular-radio:checked + label:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+/* bottstrap table 插件样式*/
+.fixed-table-container thead th .th-inner {
+    background-color: #5fb0d5;
+}
+
+.fixed-table-pagination .page-number-list {
+    display: inline-block;
+}
+
+th.bs-checkbox {
+    background-color: #5fb0d5;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 20px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.container-sp-yl {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}

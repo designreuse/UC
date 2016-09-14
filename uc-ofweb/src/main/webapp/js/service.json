@@ -1,0 +1,6 @@
+{
+    "service" : [
+        {"_id":101,"serviceName":"IM服务","host":"10.3.17.149","port":"22","flag":"IM","status":"0","dir":"/usr/local/openfire-source/Odin-OF/src/target/openfire"},
+        {"_id":102,"serviceName":"文件服务","host":"10.3.17.149","port":"22","flag":"FS","status":"0","dir":"/usr/local/FileServer"}
+    ]
+}

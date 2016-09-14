@@ -1,0 +1,58 @@
+
+<html>
+<body style="line-height: 25px;font-size: 14px;color: #444444;">
+<div align="center" style="padding-top: 30px;margin-left:auto;margin-right:auto;">
+    <table style="width:560px;border: 1px solid #E3E3E3;background-color:#FBFBFB;" cellspacing="0">
+        <tbody>
+        <tr>
+            <td style="padding:15px 40px 0 40px;" align="left"><a href="http://www.yealinkvc.com" target="view_window" style="text-decoration:none;"></a></td>
+        </tr>
+        <tr>
+            <td style="padding:0 40px;"><p style="mso-line-height-rule:exactly;line-height:4px;height:4px;border:none;border-bottom: 4px solid #40A382;color:#40A382;">&nbsp;</p></td>
+        </tr>
+        <tr>
+            <td style="padding:18px 40px 36px 40px;font-family: Microsoft YaHei !important;">
+                <p></p>
+
+                <p>您好 ${staff.name}<br>
+
+                    欢迎加入${enterpriseName}<br>
+                    以下是你的相关账号信息，请参考：<br>
+                </p>
+
+                <div style="padding:8px 0;">
+                    <table class="infotable" style="width: 485px;border-collapse:collapse;background-color: #FFFFFF;">
+                        <thead>
+                        <tr>
+                            <td>姓名</td>
+                            <td>用户名</td>
+                            <td>密码</td>
+                            <td>Pin码</td>
+                            <td>登录地址</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr style="height: 35px;">
+                            <td width="25%" style="width: 25%;border: 1px solid #aaa;text-align: center;">${staff.name}</td>
+                            <td width="20%" style="width: 20%;border: 1px solid #aaa;text-align: center;">${ucAccount.username}</td>
+                            <td width="20%" style="width: 20%;border: 1px solid #aaa;text-align: center;">${ucAccount.plainPassword}</td>
+                            <td width="15%" style="width: 15%;border: 1px solid #aaa;text-align: center;">${ucAccount.pinCode}</td>
+                            <td width="20%" style="width: 20%;border: 1px solid #aaa;text-align: center;">${loginUrl}</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                    <div style="font-size: 12px;color: #444444;padding-top:10px;"></div>
+                </div>
+                <p><span style="font-weight:bold">客户端下载地址：</span><a href ="http://服务器IP地址/download"/>http://服务器IP地址/download</a></p>
+                <p><span style="font-weight:bold">手机端下载地址：</span><a href ="http://服务器IP地址/download">http://服务器IP地址/download</a></p>
+                <p>安卓二维码<img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1473760938&di=26c8e1d2a625de4cfb44c175778b76a5&src=http://pic.baike.soso.com/p/20131211/20131211091752-393669037.jpg" width="150" height="100"></p>
+                <p>IOS二维码<img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1473760938&di=26c8e1d2a625de4cfb44c175778b76a5&src=http://pic.baike.soso.com/p/20131211/20131211091752-393669037.jpg" width="150" height="100"></p></p>
+                <p>如有问题请及时与管理员联系</p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

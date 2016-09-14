@@ -1,0 +1,29 @@
+.batch-operation-cancel{
+	margin-left:22px;float:right;
+}
+.batch-operation-mail{
+	margin-left:6px;float:left
+}
+.batch-operation-delete{
+	margin-left:22px;float:left
+}
+
+.staff-account-tip{
+	font-size: smaller;
+	margin-top: 7px;
+}
+
+
+.moveStaff {
+	cursor: pointer;
+	display: block;
+	width: 17px;
+	height: 17px;
+	background: url('/images/operation/edit.png') no-repeat;
+}
+.moveStaff:hover {
+	background: url('/images/operation/move.png') no-repeat;
+}
+.moveStaff:visited {
+	background: url('/images/operation/move.png') no-repeat;
+}

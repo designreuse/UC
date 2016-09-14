@@ -1,0 +1,2 @@
+1:该目录放各自项目需要在平台层面实现的额功能.
+2:uc-service 和uc-api各自实现自己的controller advice ，因为内部的处理逻辑是不一致的.

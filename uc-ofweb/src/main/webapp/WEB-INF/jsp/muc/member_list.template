@@ -1,0 +1,29 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+{{if length>0}}
+    {{each members as value i}}
+        <tr>
+            <td style="width: 40%">{{value.name}}</td>
+            {{if value.affliation === "owner"}}
+                <td>群主</td>
+            {{else if value.affliation === "admin"}}
+                <td>管理员</td>
+            {{else}}
+                <td>群员</td>
+            {{/if}}
+            <td style="width: 30%; text-align: center">
+                <div class="row td-div-operation">
+                    <label name="{{value.name}}" class="table-icon-label" data-id="{{value.userId}}">
+                        <i class="icon-cogs icon-large" title="角色管理"></i>
+                    </label>
+                    <label class="table-icon-label" data-id="{{value.jid}}">
+                        <i class="icon-trash icon-large" title="删除"></i>
+                    </label>
+                </div>
+            </td>
+        </tr>
+    {{/each}}
+{{else}}
+    <tr>
+        <td colspan="3" style="text-align: center">无用户</td>
+    </tr>
+{{/if}}

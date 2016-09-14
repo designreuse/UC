@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="decorators">
+<!-- 放弃装饰部分 -->
+<excludes>
+	<pattern>*/</pattern>
+	<pattern>*/login*</pattern>
+	<pattern>*/logout*</pattern>
+	<pattern>/images/*</pattern>
+	<pattern>/static/*</pattern>
+	<pattern>/3rdLibrary/*</pattern>
+	<pattern>/styles/*</pattern>
+	<!-- 所有弹出窗口页面使用show开始，不需要header.jsp装饰-->
+	<pattern>/enterprise/apply*</pattern>
+	<pattern>/enterprise/active*</pattern>
+	<pattern>/*/forwardToCreate*</pattern>
+	<pattern>/*/forwardToEdit*</pattern>
+	<pattern>/*/forwardToMove*</pattern>
+	<pattern>/*/forwardToDelete*</pattern>
+	<pattern>/staff/import</pattern>
+	<pattern>/account/show</pattern>
+	<pattern>/account/password/forwardToForgot</pattern>
+	<pattern>/account/password/forwardToReset*</pattern>
+	<pattern>/fileshare/manager/initTime*</pattern>
+</excludes>
+ <!--装饰名称，可以设置多个-->
+ <decorator name="default" page="/decorator/decorator_main.jsp">
+      <pattern>/*</pattern>
+ </decorator>
+</decorators>

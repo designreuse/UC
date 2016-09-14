@@ -1,0 +1,130 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<div id="searchStaffListDivId">
+	<div>
+		<div style="width:17%;margin-left:0%;margin-top:15px" id="divSearch">
+			<input class="form-control" id="search_org" maxlength="256" title="请输入关键字搜索" placeholder="搜索部门/员工/分机号/IP">
+		</div>
+		<div class="select_content" style="overflow:auto;" id="resultDiv">
+			<ul id="resultUL">
+			</ul>
+		</div>
+	</div>
+
+	<div id="batchOperationDiv" style="display:none" >
+		{{ if org._id >0}}
+			<div class="batch-operation-mail">
+				<a  class="no-underline" id="batchMailStaff" href="javascript:void(0);">
+					<img src="${pageContext.request.contextPath}/images/operation/mail.png">
+				</a>
+				批量发送账号
+			</div>
+		{{/if}}
+		<div class="batch-operation-delete">
+			<a  class="no-underline"  href="javascript:void(0);" id="batchDeleteStaff">
+				<img src="${pageContext.request.contextPath}/images/operation/delete.png">
+			</a>
+			批量删除
+		</div>
+		<div class="batch-operation-cancel">
+			<a  class="no-underline" href="javascript:void(0);" id="closeBatchOperation">
+				<img src="${pageContext.request.contextPath}/images/operation/cancel.png">
+			</a>
+		</div>
+	</div>
+	<div>
+		<table class="table">
+			<thead>
+			<tr class="table-tr-head">
+				<th class="white-color"><input type="checkbox" id="checkAllStaff">姓名</th>
+				<th class="white-color">所属部门</th>
+				<th class="white-color">所在职位</th>
+				<th class="white-color">分机号</th>
+				<th class="white-color">手机号</th>
+				<th class="white-color" width="30%">操作</th>
+			</tr>
+			</thead>
+			<tbody>
+
+			{{each pageModel.records as prop index}}
+				<tr class=" {{if index % 2 ===0}}
+								table-striped-tr-even
+							{{else}}
+								table-striped-tr-odd
+							{{/if}}">
+					<td>
+						<label style="float:left">
+							<input type="checkbox" id="staffCheck_{{ prop.staff._id }}">
+						</label>
+						{{if prop.staff.gender === 1}}
+							<img src="${pageContext.request.contextPath}/images/staff/staff_men.png">
+						{{else}}
+							<img src="${pageContext.request.contextPath}/images/staff/staff_women.png">
+						{{/if}}
+						<label title="{{ prop.staff.name}}">
+							{{ prop.staff.name}}
+						</label>
+					</td>
+					<td >{{ prop.org.name}}</td>
+					<td >{{ prop.staff.position}}</td>
+					<td >{{ prop.extension.number}}</td>
+					<td >
+						{{each prop.staff.mobilePhones as mobile index}}
+							{{ mobile}}<br>
+						{{/each}}
+					</td>
+					<td>
+						<div class="row td-div-operation">
+							{{ if prop.staff.status == -2}}
+								<a  class="no-underline" id="revert_{{ prop.staff._id }}" href="javascript:void(0);">
+									<img src="${pageContext.request.contextPath}/images/operation/revert.png" title="还原">
+								</a>
+								<a  class="no-underline" id="delete_{{ prop.staff._id }}" href="javascript:void(0);">
+									<img src="${pageContext.request.contextPath}/images/operation/delete.png" title="删除">
+								</a>
+							{{else}}
+								<a  class="no-underline" id="edit_{{ prop.staff._id }}" href="javascript:void(0);">
+									<img src="${pageContext.request.contextPath}/images/operation/edit.png" title="编辑">
+								</a>
+								<a  class="no-underline" id="mail_{{ prop.staff._id }}" href="javascript:void(0);">
+									<img src="${pageContext.request.contextPath}/images/operation/mail.png" title="发送账号">
+								</a>
+								<div id="operationDiv_{{ prop.staff._id }}" hidden="true">
+									<a  class="no-underline" id="move_{{ prop.staff._id }}" href="javascript:void(0);">
+										<img src="${pageContext.request.contextPath}/images/operation/move.png" title="移动部门">
+									</a>
+									{{ if prop.staff.status === 1}}
+											<a  class="no-underline" id="lock_{{ prop.staff._id }}" href="javascript:void(0);">
+												<img src="${pageContext.request.contextPath}/images/operation/lock.png" title="锁定">
+											</a>
+									{{else if prop.staff.status === -1}}
+											<a  class="no-underline" id="unlock_{{ prop.staff._id }}" href="javascript:void(0);">
+												<img src="${pageContext.request.contextPath}/images/operation/unlock.png" title="解锁">
+											</a>
+									{{/if}}
+									{{ if prop.staff.status === -2}}
+										<a  class="no-underline" id="revert_{{ prop.staff._id }}" href="javascript:void(0);">
+											<img src="${pageContext.request.contextPath}/images/operation/revert.png" title="还原">
+										</a>
+									{{else}}
+										<a  class="no-underline" id="recycle_{{ prop.staff._id }}" href="javascript:void(0);">
+											<img src="${pageContext.request.contextPath}/images/operation/forbidden.png" title="禁用">
+										</a>
+									{{/if}}
+
+									<a  class="no-underline" id="delete_{{ prop.staff._id }}" href="javascript:void(0);">
+										<img src="${pageContext.request.contextPath}/images/operation/delete.png" title="删除">
+									</a>
+								</div>
+								<a  id="more_{{ prop.staff._id }}" href="javascript:void(0);">
+									<img src="${pageContext.request.contextPath}/images/operation/more.png" title="更多">
+								</a>
+							{{/if}}
+
+						</div>
+					</td>
+				</tr>
+			{{/each}}
+			</tbody>
+		</table>
+	</div>
+</div>

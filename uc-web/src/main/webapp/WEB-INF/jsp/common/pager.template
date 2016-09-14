@@ -1,0 +1,44 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<div id="pagination">
+    <div style="float:left;margin-right: 18px;">
+        <span>共{{pageModel.total}}条,</span>
+        <span>
+            每页显示
+            <select id="pageSizeSelect" style="padding:2px 0px">
+                <option value="10" {{if pageModel.pageSize ===10}}selected="selected" {{/if}}>10</option>
+                 <option value="20" {{if pageModel.pageSize ===20}}selected="selected" {{/if}}>20</option>
+                 <option value="50" {{if pageModel.pageSize ===50}}selected="selected" {{/if}}>50</option>
+                 <option value="100" {{if pageModel.pageSize ===100}}selected="selected" {{/if}}>100</option>
+            </select>
+            条
+        </span>
+    </div>
+    <div style="float:left">
+        <span>
+            第
+            <select id="pageNoSelect" style="padding:2px 0px">
+                {{each pageArray as page index}}
+                    <option value="{{page}}" {{if pageModel.pageNo ===page}}selected="selected" {{/if}}>{{page}}</option>
+                {{/each}}
+            </select>
+            页
+        </span>
+    </div>
+    <div style="float:left;margin-left:18px">
+        {{if totalPages === 1}}
+            <a class="no-underline" style="margin-right:6px" href="javascript:void(0);"><span title="上一页">&lt;</span></a>
+            <a class="no-underline"  href="javascript:void(0);"><span title="下一页">&gt;</span></a>
+        {{else}}
+            {{if pageModel.pageNo === 1}}
+                    <a class="no-underline" style="margin-right:6px" onclick="goStaffListPage({{pageModel.pageNo}},{{pageModel.pageSize}});" href="javascript:void(0);"><span title="上一页">&lt;</span></a>
+                    <a class="no-underline" onclick="goStaffListPage({{pageModel.pageNo + 1}},{{pageModel.pageSize}});" href="javascript:void(0);"><span title="下一页">&gt;</span></a>
+            {{else if pageModel.pageNo === totalPages}}
+                    <a class="no-underline" style="margin-right:6px" onclick="goStaffListPage({{pageModel.pageNo - 1}},{{pageModel.pageSize}});" href="javascript:void(0);"><span title="上一页">&lt;</span></a>
+                    <a class="no-underline" onclick="goStaffListPage({{pageModel.pageNo}},{{pageModel.pageSize}});" href="javascript:void(0);"><span title="下一页">&gt;</span></a>
+            {{else}}
+                    <a class="no-underline" style="margin-right:6px" onclick="goStaffListPage({{pageModel.pageNo - 1}},{{pageModel.pageSize}});" href="javascript:void(0);"><span title="上一页">&lt;</span></a>
+                    <a class="no-underline" onclick="goStaffListPage({{pageModel.pageNo + 1}},{{pageModel.pageSize}});" href="javascript:void(0);"><span title="下一页">&gt;</span></a>
+            {{/if}}
+        {{/if}}
+    </div>
+</div>
